@@ -12,15 +12,15 @@ import sqlite3
 import os
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlSihBXox7C0sKR6b'
+app.config['SECRET_KEY'] = os.getenv('FLASK_APP_KEY')
 Bootstrap(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///products.db"
 db = SQLAlchemy(app)
 
 # twilio account
-ACCOUNT_SID = "AC03b45fcbdc05dc227813f99e9237beb4"
-AUTH_TOKEN = "390f288edae7a32f1d45d030d4523551"
-TWILIO_PHONE = "+17038549614"
+ACCOUNT_SID = os.getenv("TWILIO_ACCOUNT_ID")
+AUTH_TOKEN = os.getenv("TWILIO_TOKEN")
+TWILIO_PHONE = os.getenv("TWILIO_PHONE_NUMBER")
 
 # Configure database where user's and product's info is stored
 class Product(db.Model):
