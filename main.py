@@ -17,7 +17,7 @@ Bootstrap(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///products.db"
 db = SQLAlchemy(app)
 
-# twilio account
+# Twilio account credentials
 ACCOUNT_SID = os.getenv("TWILIO_ACCOUNT_ID")
 AUTH_TOKEN = os.getenv("TWILIO_TOKEN")
 TWILIO_PHONE = os.getenv("TWILIO_PHONE_NUMBER")
