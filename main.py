@@ -38,7 +38,8 @@ class Product(db.Model):
 
 db.create_all()
 
-# Class to identify error when user inputs a desired price that's greater than the current price of the item
+# Class to identify error when user inputs a desired price that's greater than the current price of
+# the item
 class PriceError(object):
     def __init__(self, model):
         self.model = model
