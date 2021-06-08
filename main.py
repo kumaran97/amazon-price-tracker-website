@@ -14,7 +14,7 @@ import os
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.getenv('FLASK_APP_KEY')
 Bootstrap(app)
-app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///products.db"
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL", "sqlite:///products.db")
 db = SQLAlchemy(app)
 
 # Twilio account credentials
