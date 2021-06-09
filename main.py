@@ -98,10 +98,15 @@ def scrape_site(product_url):
 
 # Function to scrape amazon using selenium
 def scrape_site_selenium(product_url):
-    chrome_driver_path = "C:\Development\chromedriver.exe"
-    opt = webdriver.ChromeOptions()
-    opt.add_argument('headless')
-    driver = webdriver.Chrome(executable_path=chrome_driver_path, options=opt)
+    GOOGLE_CHROME_PATH = '/app/.apt/usr/bin/google_chrome'
+    CHROME_DRIVER_PATH = '/app/.chromedriver/bin/chromedriver'
+    chrome_options = webdriver.ChromeOptions()
+    chrome_options.add_argument('--disable-gpu')
+    chrome_options.add_argument('--no-sandbox')
+    chrome_options.add_argument('headless')
+    chrome_options.binary_location = GOOGLE_CHROME_PATH
+
+    driver = webdriver.Chrome(executable_path=CHROME_DRIVER_PATH, options=chrome_options)
 
     driver.get(
         f"{product_url}")
