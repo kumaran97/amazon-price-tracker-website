@@ -2,6 +2,7 @@ import requests
 from twilio.rest import Client
 from bs4 import BeautifulSoup
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options as ChromeOptions
 from flask import Flask, render_template, redirect, url_for, request
 from flask_bootstrap import Bootstrap
 from flask_sqlalchemy import SQLAlchemy
@@ -100,7 +101,7 @@ def scrape_site(product_url):
 def scrape_site_selenium(product_url):
     GOOGLE_CHROME_PATH = os.getenv('GOOGLE_CHROME_PATH')
     CHROME_DRIVER_PATH = os.getenv('CHROME_DRIVER_PATH')
-    chrome_options = webdriver.ChromeOptions()
+    chrome_options = ChromeOptions()
     chrome_options.add_argument('--disable-gpu')
     chrome_options.add_argument('--no-sandbox')
     chrome_options.add_argument('headless')
