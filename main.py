@@ -113,7 +113,7 @@ def scrape_site_selenium(product_url):
     driver.get(
         f"{product_url}")
 
-    time.sleep(5)
+    time.sleep(8)
 
     find_price = driver.find_element_by_xpath("//span[@id='priceblock_ourprice']")
     find_price = find_price.text
