@@ -11,6 +11,7 @@ from wtforms import StringField, SubmitField, SelectField, IntegerField
 from wtforms.validators import DataRequired, ValidationError
 import sqlite3
 import os
+import time
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.getenv('FLASK_APP_KEY')
@@ -111,6 +112,8 @@ def scrape_site_selenium(product_url):
 
     driver.get(
         f"{product_url}")
+
+    time.sleep(5)
 
     find_price = driver.find_element_by_xpath("//span[@id='priceblock_ourprice']")
     find_price = find_price.text
