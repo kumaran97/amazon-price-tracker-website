@@ -31,7 +31,7 @@ class Product(db.Model):
     phone_number = db.Column(db.Integer, unique=False, nullable=False)
     product_name = db.Column(db.String(250), unique=False, nullable=False)
     product_price = db.Column(db.Integer, unique=False, nullable=False)
-    product_url = db.Column(db.String(250), unique=False, nullable=False)
+    product_url = db.Column(db.Text, unique=False, nullable=False)
     target_price = db.Column(db.Integer, unique=False, nullable=False)
     any_sale = db.Column(db.String(250), unique=False, nullable=False)
 
